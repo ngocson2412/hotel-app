@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hotels</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+    <header>
+      <nav>
+        <ul>
+        <% if admin_signed_in? %>
+        <li>管理者 dddd<%= current_admin.email%></li>
+
+            <li><%= link_to "ログアウト admin", destroy_admin_session_path, method: :delete %></li>
+        <% end %>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>

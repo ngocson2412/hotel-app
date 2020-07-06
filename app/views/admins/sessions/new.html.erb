@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentelella Alela! | </title>
+    <!-- Bootstrap -->
+    <%= stylesheet_link_tag '/vendors/bootstrap/dist/css/bootstrap.min.css' %>
+    <!-- Font Awesome -->
+    <%= stylesheet_link_tag '/vendors/font-awesome/css/font-awesome.min.css' %>
+    <!-- Custom Theme Style -->
+    <%= stylesheet_link_tag '/build/css/custom.css' %>
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <h1>Admin Login Form</h1>
+              <div>
+                <%= f.text_field :name, autofocus: true, autocomplete: "name", :class => "form-control", :placeholder => "Username" %>
+              </div>
+              <div>
+                <%= f.password_field :password, autocomplete: "current-password", :class => "form-control", :placeholder => "Password"%>
+              </div>
+              <% if devise_mapping.rememberable? %>
+                <div>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end %>
+
+              <div>
+                <%= f.submit "Log in", :class => "btn btn-default btn-sm btn-success" %>
+              </div>
+              <div class="separator">
+                <div class="clearfix"></div>
+                <br />
+                <div>
+                  <h1><i class="fa fa-building"></i> Hotel Web Page!</h1>
+                  <p>©2020 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            <% end %>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
