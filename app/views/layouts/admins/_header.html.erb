@@ -1,0 +1,110 @@
+<div class="col-md-3 left_col menu_fixed">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Hotel Web Page!</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+            <div class="profile_pic">
+                <img src="/images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>Welcome Manager,</span>
+                <h2><%= current_admin.name%></h2>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+        <br />
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<%= admins_home_index_path%>">Dashboard</a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="user/index.html">Users</a>
+                            </li>
+                            <li>
+                                <a href="user/form.html">Add New User</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-building"></i> Hotels <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="hotel/hotel_index.html">Hotels</a>
+                            </li>
+                            <li>
+                                <a href="hotel/hotel_new.html">Add New Hotel</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-desktop"></i> Booking <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="listbook/book_index.html">Booking</a>
+                            </li>
+                            <li>
+                                <a href="listbook/book_new.html">Add New Booking</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu_section">
+                <h3>Content</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a><i class="fa fa-file-text-o"></i> Posts<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="post/post_index.html">Post</a>
+                            </li>
+                            <li>
+                                <a href="post/post_new.html">Add New Post</a>
+                            </li>
+                            <li>
+                                <a href="post/category_index.html">Categories</a>
+                            </li>
+                            <li>
+                                <a href="post/tag_index.html">Tags</a>
+                            </li>
+                            <li>
+                                <a href="post/tag_edit.html">Add New Tags</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-edit"></i> Comments <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="comment/comment_index.html">Comments</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-envelope-o"></i>Contacts<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="contact/contact_index.html">Contacts</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /sidebar menu -->
+    </div>
+</div>

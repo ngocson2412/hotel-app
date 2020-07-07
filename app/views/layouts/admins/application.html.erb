@@ -1,27 +1,64 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hotels</title>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hotel Web Page! | </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-    <header>
-      <nav>
-        <ul>
-        <% if admin_signed_in? %>
-        <li>管理者 dddd<%= current_admin.email%></li>
+    <!-- Bootstrap -->
+    <%= stylesheet_link_tag '/vendors/bootstrap/dist/css/bootstrap.min.css' %>
+    <!-- Font Awesome -->
+    <%= stylesheet_link_tag '/vendors/font-awesome/css/font-awesome.min.css' %>
+    <!-- NProgress -->
+    <%= stylesheet_link_tag '/vendors/nprogress/nprogress.css' %>
+    <!-- jQuery custom content scroller -->
+    <%= stylesheet_link_tag '/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %>
 
-            <li><%= link_to "ログアウト admin", destroy_admin_session_path, method: :delete %></li>
-        <% end %>
-      </nav>
-    </header>
-    <%= yield %>
-  </body>
+    <!-- Custom Theme Style -->
+    <%= stylesheet_link_tag '/build/css/custom.css' %>
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <%= render "layouts/admins/header" %>
+
+            <!-- top navigation -->
+            <%= render "layouts/admins/top_nav" %>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <%= yield %>
+            </div>
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <%= render "layouts/admins/footer" %>
+            <!-- /footer content -->
+        </div>
+    </div>
+    
+    <!-- jQuery -->
+    <%= javascript_include_tag "/vendors/jquery/dist/jquery.min.js" %>
+    <!-- Bootstrap -->
+    <%= javascript_include_tag "/vendors/bootstrap/dist/js/bootstrap.bundle.min.js" %>
+    <!-- FastClick -->
+    <%= javascript_include_tag "/vendors/fastclick/lib/fastclick.js" %>
+    <!-- jQuery custom content scroller -->
+    <%= javascript_include_tag "/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js" %>
+    <!-- Custom Theme Scripts -->
+    <%= javascript_include_tag "/build/js/custom.min.js" %>
+</body>
+
 </html>
