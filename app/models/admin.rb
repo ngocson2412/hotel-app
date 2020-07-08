@@ -3,4 +3,17 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :password, :presence => true,
+    :confirmation => true,
+         :length => {:within => 6..40},
+         :on => :create
+  validates :password, :confirmation => true,
+    :length => {:within => 6..40},
+    :allow_blank => true,
+    :on => :update
+  
+  validates :name, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
+  validates :phone, numericality: { only_integer: true }
 end

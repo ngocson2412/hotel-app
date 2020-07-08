@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col menu_fixed">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Hotel Web Page!</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-building"></i> <span>Hotel Web!</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -25,19 +25,15 @@
                     <li>
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="<%= admins_home_index_path%>">Dashboard</a>
+                            <li><%= link_to "Dashboard", admins_home_index_path %></li>
                         </ul>
                     </li>
                     <% if is_admin? %>
                         <li>
-                            <a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
+                            <a><i class="fa fa-users"></i> Customers <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                                <li>
-                                    <a href="user/index.html">Users</a>
-                                </li>
-                                <li>
-                                    <a href="user/form.html">Add New User</a>
-                                </li>
+                                <li><%= link_to "Customers", admins_admins_path %></li>
+                                <li><%= link_to "Add New Customer", new_admins_admin_path %></li>
                             </ul>
                         </li>
                     <% end %>

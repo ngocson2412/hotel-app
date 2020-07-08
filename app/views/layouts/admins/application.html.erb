@@ -12,19 +12,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <%= stylesheet_link_tag '/vendors/bootstrap/dist/css/bootstrap.min.css' %>
     <!-- Font Awesome -->
     <%= stylesheet_link_tag '/vendors/font-awesome/css/font-awesome.min.css' %>
-    <!-- NProgress -->
-    <%= stylesheet_link_tag '/vendors/nprogress/nprogress.css' %>
     <!-- jQuery custom content scroller -->
     <%= stylesheet_link_tag '/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' %>
+    <!-- iCheck -->
+    <%= stylesheet_link_tag '/vendors/iCheck/skins/flat/green.css' %>
+    <!-- Datatables -->
+    <%= stylesheet_link_tag '/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css' %>
 
-    <!-- Custom Theme Style -->
+        <!-- Custom Theme Style -->
     <%= stylesheet_link_tag '/build/css/custom.css' %>
 </head>
 
@@ -39,6 +39,7 @@
 
             <!-- page content -->
             <div class="right_col" role="main">
+                <%= render "layouts/admins/alert" %>
                 <%= yield %>
             </div>
             <!-- /page content -->
@@ -57,8 +58,14 @@
     <%= javascript_include_tag "/vendors/fastclick/lib/fastclick.js" %>
     <!-- jQuery custom content scroller -->
     <%= javascript_include_tag "/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js" %>
+    <!-- iCheck -->
+    <%= javascript_include_tag "/vendors/iCheck/icheck.min.js" %>
+    <!-- Datatables -->
+    <%= javascript_include_tag "/vendors/datatables.net/js/jquery.dataTables.min.js" %>
+    <%= javascript_include_tag "/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js" %>
+        
     <!-- Custom Theme Scripts -->
-    <%= javascript_include_tag "/build/js/custom.min.js" %>
+    <%= javascript_include_tag "/build/js/custom.js" %>
 </body>
 
 </html>

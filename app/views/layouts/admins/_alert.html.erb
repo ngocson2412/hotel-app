@@ -1,0 +1,19 @@
+<% flash.each do |type, msg| %>
+    <% if type == "notice" %>
+        <div class= "row">
+            <div class="alert alert-success alert-dismissible" style = "width: 100%;" role="alert">
+                <button type="button" style = "padding: 0px;" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <%= msg %>
+            </div>
+        </div>
+    <% else %>
+        <div class= "row">
+            <div class="alert alert-danger alert-dismissible" style = "width: 100%;" role="alert">
+                <button type="button" style = "padding: 0px;" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <%= msg %>
+            </div>
+        </div>
+    <% end %>
+<% end %>
