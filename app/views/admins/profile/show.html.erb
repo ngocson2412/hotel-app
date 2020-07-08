@@ -1,0 +1,83 @@
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3><%= current_admin.first_name%> <%= current_admin.last_name%></h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Information</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Settings 1</a>
+                                <a class="dropdown-item" href="#">Settings 2</a>
+                            </div>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <p>User name: <%= current_admin.name %></p>
+                    <p>Phone: <%= current_admin.phone %></p>
+                    <p>Address: <%= current_admin.city %> <%= current_admin.addr_1 %> <%= current_admin.addr_2 %></p>
+                    <p>Created at: <%= current_admin.created_at %> </p>
+                    <p>Updated at: <%= current_admin.updated_at %> </p>
+                    <p>Delete Flag: <%= current_admin.del_flag %> </p>
+                    <p>Deleted at: <%= current_admin.deleted_at %> </p>
+                    <p>Description:</p>
+                    <p style = "white-space: pre-line"><%= current_admin.desc %><p>
+                    <div class="row">
+                        <%= link_to "Edit User", admins_customer_profile_edit_path, :class => "btn btn-success btn-sm", :style => "margin-left: 15px;" %> 
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#changePwModal">
+                            Change Password
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="changePwModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <%= form_with(model: current_admin, url: admins_customer_profile_pwd_update_path, local: true, :class => "form-horizontal form-label-left") do |f| %>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group row ">
+                                                <label class="control-label col-md-3 col-sm-3">Password<span class="required">*</span></label>
+                                                <div class="col-md-9 col-sm-9 ">
+                                                    <%= f.password_field(:password, rows: 2, :class => "form-control", :placeholder => "Password") %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row ">
+                                                <label class="control-label col-md-3 col-sm-3">Confirm Password<span class="required">*</span></label>
+                                                <div class="col-md-9 col-sm-9 ">
+                                                    <%= f.password_field(:password_confirmation, rows: 2, :class => "form-control", :placeholder => "Confirm Password") %>
+                                                </div>
+                                            </div>
+                                            <p style = "color:red">When changing the password, you need to login again.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <%= f.submit 'Save changes', :class => "btn btn-primary" %>
+                                        </div>
+                                    </div>
+                                <% end %> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
