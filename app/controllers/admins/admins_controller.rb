@@ -1,7 +1,7 @@
 class Admins::AdminsController < ApplicationController
+  before_action :authenticate_admin!, :is_admin!
   before_action :set_admin, only: [:show, :edit, :update, :destroy, :update_pwd]
   layout 'admins/application'
-  before_action :authenticate_admin!, :is_admin!
 
   # GET /admins
   # GET /admins.json
@@ -35,7 +35,7 @@ class Admins::AdminsController < ApplicationController
         format.html { redirect_to admins_admin_path(@admin), notice: 'Admin was successfully created with password : ' +  password}
         format.json { render :show, status: :created, location: @admin }
       else
-        format.html { redirect_to new_admins_admin_path, alert: 'Admin create failed.'  }
+        format.html { render :new  }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
       end
     end
@@ -49,7 +49,7 @@ class Admins::AdminsController < ApplicationController
         format.html { redirect_to admins_admin_path(@admin), notice: 'Admin was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin }
       else
-        format.html { render admins_admin_path(@admin) }
+        format.html { render :edit }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
       end
     end

@@ -40,12 +40,8 @@
                     <li>
                         <a><i class="fa fa-building"></i> Hotels <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li>
-                                <a href="hotel/hotel_index.html">Hotels</a>
-                            </li>
-                            <li>
-                                <a href="hotel/hotel_new.html">Add New Hotel</a>
-                            </li>
+                            <li><%= link_to "Hotels", admins_hotels_path %></li>
+                            <li><%= link_to "Add New Hotel", new_admins_hotel_path %></li>
                         </ul>
                     </li>
                     <li>

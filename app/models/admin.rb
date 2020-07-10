@@ -13,7 +13,8 @@ class Admin < ApplicationRecord
     :allow_blank => true,
     :on => :update
   
-  validates :name, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
-  validates :phone, numericality: { only_integer: true }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }, format: { without: /\s/ }
+  validates :phone,presence: true, length: { minimum: 10, maximum: 11 }
+
+  has_many :hotels
 end

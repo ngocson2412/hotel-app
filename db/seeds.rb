@@ -7,7 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-   name: 'son',
-   email: 'son@localhost.com',
-   password: 'son123',
+   name: 'admin',
+   email: 'admin@localhost.com',
+   password: 'admin123',
+   is_admin: true,
+   phone: '01234567890'
+)
+
+Hotel.create!(
+   name: 'hotel name 1',
+   hotel_code: 'hotel01',
+   city: 'Hai Phong',
+   addr_1: 'Vinh Bao',
+   addr_2: 'Tran Duong',
+   admin_id: 1,
+   phone: '01234567890'
 )

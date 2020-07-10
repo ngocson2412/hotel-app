@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_124026) do
+ActiveRecord::Schema.define(version: 2020_07_08_092112) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -41,7 +41,24 @@ ActiveRecord::Schema.define(version: 2020_07_07_124026) do
     t.boolean "del_flag", default: false
     t.datetime "deleted_at"
     t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["name"], name: "index_admins_on_name", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "hotel_code", null: false
+    t.string "phone"
+    t.boolean "public"
+    t.string "city"
+    t.string "addr_1"
+    t.text "addr_2"
+    t.text "desc_s"
+    t.text "desc"
+    t.integer "admin_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_hotels_on_admin_id"
   end
 
   create_table "users", force: :cascade do |t|
