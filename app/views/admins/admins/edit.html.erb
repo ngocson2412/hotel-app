@@ -20,6 +20,15 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+                    <% if @admin.errors.any? %>
+                        <div id="error_explanation">
+                            <ul>
+                                <% @admin.errors.full_messages.each do |message| %>
+                                <li style = "color:red"><%= message %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                     <% end %>
                     <br />
                     <%= form_with(model: @admin, url: admins_admin_path(@admin), local: true, :class => "form-horizontal form-label-left") do |f| %>
                         <div class="form-group row ">

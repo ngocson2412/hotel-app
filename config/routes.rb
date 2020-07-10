@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   namespace :admins do
     get 'home/index'
+
     resources :admins, path: 'customers'
     patch '/customers/update_pwd/:id', to: 'admins#update_pwd', :as => 'customer_update_pwd'
     get 'customer/profile', to: 'profile#show', :as => 'customer_profile'
     get 'customer/profile/edit', to: 'profile#edit', :as => 'customer_profile_edit'
     patch 'customer/profile/update', to: 'profile#update', :as => 'customer_profile_update'
     patch 'customer/profile/update_pwd', to: 'profile#update_pwd', :as => 'customer_profile_pwd_update'
+
+    resources :hotels
   end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'

@@ -1,0 +1,332 @@
+<%= form_with(model: @hotel, url: admins_hotels_path, local: true, :class => "form-horizontal form-label-left") do |f| %>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Add New Hotel</h3>
+            </div>
+            <div class="title_right">
+                <div class="col-md-4 col-sm-4 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <%= link_to "Cancel", admins_hotels_path, :class => "btn btn-primary" %>
+                        <button type="reset" class="btn btn-primary">Reset</button>
+                        <%= f.submit 'Submit', :class => "btn btn-success" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <% if @hotel.errors.any? %>
+                <div id="error_explanation">
+                    <ul>
+                        <% @hotel.errors.full_messages.each do |message| %>
+                        <li style = "color:red"><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Information</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3">Name<span class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <%= f.text_field :name, :class => "form-control", :placeholder => "Name" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3">Hotel Code<span class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <%= f.text_field :hotel_code, :class => "form-control", :placeholder => "Hotel Code" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3">Phone<span class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <%= f.text_field :phone, :class => "form-control", :placeholder => "Phone" %>
+                                    </div>
+                                </div>
+                               <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3">Status</label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <%= f.select(:public, [['No', false], ['Yes', true]], {}, { :class => 'form-control' }) %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3 ">Short Description<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <%= f.text_area(:desc_s, rows: 2, :class => "form-control", :placeholder => "Short Description") %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3">City<span class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3">Address 1<span class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <%= f.text_field :addr_1, :class => "form-control", :placeholder => "Address 1" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3 col-sm-3 ">Address 2 <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                        <%= f.text_area(:addr_2, rows: 2, :class => "form-control", :placeholder => "Address 2") %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Content</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div id="alerts"></div>
+                                <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">
+                                    <div class="btn-group">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                        </ul>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a data-edit="fontSize 5">
+                                                    <p style="font-size:17px">Huge</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-edit="fontSize 3">
+                                                    <p style="font-size:14px">Normal</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-edit="fontSize 1">
+                                                    <p style="font-size:11px">Small</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                                        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                                        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                                        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+                                        <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
+                                        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
+                                        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                                        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                                        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                                        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
+                                        <div class="dropdown-menu input-append">
+                                            <input class="span2" placeholder="URL" type="text" data-edit="createLink" />
+                                            <button class="btn" type="button">Add</button>
+                                        </div>
+                                        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+                                        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                                        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                                    </div>
+                                </div>
+
+                                <div id="editor-one" class="editor-wrapper"></div>
+                                <%= f.text_area(:desc, rows: 2, :class => "form-control", :id => "hotelDesc", :style => "display:none;") %>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Images</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <div class="row">
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-44">
+                                <div class="thumbnail">
+                                    <div class="image view view-first hotel-image">
+                                        <img class="hotel-image-detail" style="width: 100%; height: 272px; display: block; cursor: pointer;" src="/images/media.jpg" alt="image" />
+                                    </div>
+                                    <div class="caption">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group">
+                <button type="button" class="btn btn-primary">Cancel</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+<% end %>

@@ -1,7 +1,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3><%= @admin.first_name%> <%= @admin.last_name%></h3>
+            <h3><%= @admin.name %></h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -26,7 +26,8 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p>User name: <%= @admin.name %></p>
+                    <p>User name: <%= @admin.first_name%> <%= @admin.last_name%></p>
+                    <p>User name: <%= @admin.email%></p>
                     <p>Phone: <%= @admin.phone %></p>
                     <p>Address: <%= @admin.city %> <%= @admin.addr_1 %> <%= @admin.addr_2 %></p>
                     <p>Created at: <%= @admin.created_at %> </p>
@@ -84,7 +85,7 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Hotels</h2>
-                    <a href="../hotel/hotel_show.html" class="btn btn-success btn-sm" style="margin-left: 15px;">Add New Hotel</a>
+                    <%= link_to "Add New Hotel", new_admins_hotel_path, :class=>"btn btn-success btn-sm", :style=>"margin-left: 15px;" %>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -102,114 +103,26 @@
                 </div>
                 <div class="x_content">
                     <div class="row">
-                        <div class="col-md-3 col-sm-3  profile_details">
-                            <div class="well profile_view">
-                                <div class="col-md-12 col-sm-12">
-                                    <h2>Hotel Name</h2>
-                                    <p><strong>Description: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-building"></i> Address: HaNoi HoangMai ABC Street 1</li>
-                                        <li><i class="fa fa-phone"></i> Phone : 0123456789</li>
-                                        <li><i class="fa fa-chevron-down"></i> Status : <strong style="color: red; font-size: 15px;">Full</strong></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-12">
-                                    <a href="../hotel/hotel_show.html" type="button" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-edit"> </i> View Detail
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3  profile_details">
-                            <div class="well profile_view">
-                                <div class="col-md-12 col-sm-12">
-                                    <h2>Hotel Name</h2>
-                                    <p><strong>Description: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-building"></i> Address: HaNoi HoangMai ABC Street 1</li>
-                                        <li><i class="fa fa-phone"></i> Phone : 0123456789</li>
-                                        <li><i class="fa fa-chevron-down"></i> Status : <strong style="color: green; font-size: 15px;">OK</strong></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-12">
-                                    <a href="../hotel/hotel_show.html" type="button" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-edit"> </i> View Detail
-                                    </a>
+                        <% @admin.hotels.each do |hotel| %>
+                            <div class="col-md-3 col-sm-3  profile_details">
+                                <div class="well profile_view">
+                                    <div class="col-md-12 col-sm-12">
+                                        <h2><%= hotel.name%></h2>
+                                        <p><strong>Description: </strong> <%= hotel.desc_s%></p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fa fa-building"></i> Address: <%= hotel.city%> <%= hotel.addr_1%> <%= hotel.addr_2%></li>
+                                            <li><i class="fa fa-phone"></i> Phone : <%= hotel.phone%></li>
+                                            <li><i class="fa fa-chevron-down"></i> Status : <strong style="color: red; font-size: 15px;">Full</strong></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <%= link_to admins_hotel_path(hotel), :class => "btn btn-primary btn-sm" do %>
+                                            <i class="fa fa-edit"> </i> View Detail
+                                        <% end%>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3  profile_details">
-                            <div class="well profile_view">
-                                <div class="col-md-12 col-sm-12">
-                                    <h2>Hotel Name</h2>
-                                    <p><strong>Description: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-building"></i> Address: HaNoi HoangMai ABC Street 1</li>
-                                        <li><i class="fa fa-phone"></i> Phone : 0123456789</li>
-                                        <li><i class="fa fa-chevron-down"></i> Status : <strong style="color: green; font-size: 15px;">OK</strong></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-12">
-                                    <a href="../hotel/hotel_new.html" type="button" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-edit"> </i> View Detail
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3  profile_details">
-                            <div class="well profile_view">
-                                <div class="col-md-12 col-sm-12">
-                                    <h2>Hotel Name</h2>
-                                    <p><strong>Description: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-building"></i> Address: HaNoi HoangMai ABC Street 1</li>
-                                        <li><i class="fa fa-phone"></i> Phone : 0123456789</li>
-                                        <li><i class="fa fa-chevron-down"></i> Status : <strong style="color: green; font-size: 15px;">OK</strong></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-12">
-                                    <a href="../hotel/hotel_show.html" type="button" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-edit"> </i> View Detail
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3  profile_details">
-                            <div class="well profile_view">
-                                <div class="col-md-12 col-sm-12">
-                                    <h2>Hotel Name</h2>
-                                    <p><strong>Description: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-building"></i> Address: HaNoi HoangMai ABC Street 1</li>
-                                        <li><i class="fa fa-phone"></i> Phone : 0123456789</li>
-                                        <li><i class="fa fa-chevron-down"></i> Status : <strong style="color: green; font-size: 15px;">OK</strong></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-12">
-                                    <a href="../hotel/hotel_show.html" type="button" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-edit"> </i> View Detail
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3  profile_details">
-                            <div class="well profile_view">
-                                <div class="col-md-12 col-sm-12">
-                                    <h2>Hotel Name</h2>
-                                    <p><strong>Description: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-building"></i> Address: HaNoi HoangMai ABC Street 1</li>
-                                        <li><i class="fa fa-phone"></i> Phone : 0123456789</li>
-                                        <li><i class="fa fa-chevron-down"></i> Status : <strong style="color: green; font-size: 15px;">OK</strong></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-12">
-                                    <a href="../hotel/hotel_show.html" type="button" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-edit"> </i> View Detail
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <% end %>
                     </div>
                 </div>
             </div>

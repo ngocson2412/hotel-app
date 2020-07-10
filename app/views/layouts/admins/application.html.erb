@@ -23,6 +23,8 @@
     <%= stylesheet_link_tag '/vendors/iCheck/skins/flat/green.css' %>
     <!-- Datatables -->
     <%= stylesheet_link_tag '/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css' %>
+    <!-- bootstrap-daterangepicker -->
+    <%= stylesheet_link_tag '/vendors/bootstrap-daterangepicker/daterangepicker.css' %>
 
         <!-- Custom Theme Style -->
     <%= stylesheet_link_tag '/build/css/custom.css' %>
@@ -63,7 +65,15 @@
     <!-- Datatables -->
     <%= javascript_include_tag "/vendors/datatables.net/js/jquery.dataTables.min.js" %>
     <%= javascript_include_tag "/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js" %>
-        
+    <!-- bootstrap-daterangepicker -->
+    <%= javascript_include_tag "/vendors/moment/min/moment.min.js" %>
+    <%= javascript_include_tag "/vendors/bootstrap-daterangepicker/daterangepicker.js" %>
+    <!-- bootstrap-wysiwyg -->
+    <%= javascript_include_tag "/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js" %>
+    <%= javascript_include_tag "/vendors/jquery.hotkeys/jquery.hotkeys.js" %>
+    <%= javascript_include_tag "/vendors/google-code-prettify/src/prettify.js" %>
+    <!-- jQuery Tags Input -->
+
     <!-- Custom Theme Scripts -->
     <%= javascript_include_tag "/build/js/custom.js" %>
 </body>

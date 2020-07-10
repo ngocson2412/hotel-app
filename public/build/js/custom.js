@@ -5036,7 +5036,6 @@ function upload_image() {
 }
 
 $(document).ready(function () {
-
     init_sparklines();
     init_flot_chart();
     init_sidebar();
@@ -5072,4 +5071,9 @@ $(document).ready(function () {
     init_autosize();
     init_autocomplete();
     upload_image()
+
+    $("#editor-one").bind("change", function() {
+        $("#hotelDesc").val($(this).html())
+    })
+    $("#editor-one").html($("#hotelDesc").val())
 });
