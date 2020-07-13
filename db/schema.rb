@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_092112) do
+ActiveRecord::Schema.define(version: 2020_07_10_095937) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -61,6 +61,23 @@ ActiveRecord::Schema.define(version: 2020_07_08_092112) do
     t.index ["admin_id"], name: "index_hotels_on_admin_id"
   end
 
+  create_table "room_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "code", null: false
+    t.integer "price", null: false
+    t.integer "hotel_id", null: false
+    t.integer "room_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hotel_id"], name: "index_rooms_on_hotel_id"
+    t.index ["room_type_id"], name: "index_rooms_on_room_type_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,4 +99,6 @@ ActiveRecord::Schema.define(version: 2020_07_08_092112) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rooms", "hotels"
+  add_foreign_key "rooms", "room_types"
 end
