@@ -11,6 +11,12 @@ class Admins::HotelsController < ApplicationController
   # GET /hotels/1
   # GET /hotels/1.json
   def show
+    @room = Room.new
+    room_types = RoomType.all
+    @room_type_array = []
+    room_types.each do |room_type|
+      @room_type_array.push([room_type.name, room_type.id])
+    end
   end
 
   # GET /hotels/new

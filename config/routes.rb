@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     patch 'customer/profile/update', to: 'profile#update', :as => 'customer_profile_update'
     patch 'customer/profile/update_pwd', to: 'profile#update_pwd', :as => 'customer_profile_pwd_update'
 
-    resources :hotels
+    resources :hotels do
+      resources :rooms, only: [:create, :update, :destroy]
+    end
+
+    resources :room_types, only: [:index, :create, :update, :destroy]
   end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
