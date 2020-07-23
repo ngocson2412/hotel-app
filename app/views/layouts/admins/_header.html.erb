@@ -47,12 +47,8 @@
                     <li>
                         <a><i class="fa fa-desktop"></i> Booking <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li>
-                                <a href="listbook/book_index.html">Booking</a>
-                            </li>
-                            <li>
-                                <a href="listbook/book_new.html">Add New Booking</a>
-                            </li>
+                            <li><%= link_to "Booking", admins_bookings_path %></li></li>
+                            <li><%= link_to "Add New Booking", new_admins_booking_path %></li>
                         </ul>
                     </li>
                 </ul>

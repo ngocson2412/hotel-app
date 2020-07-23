@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
 
     resources :room_types, only: [:index, :create, :update, :destroy]
+    resources :bookings
   end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'

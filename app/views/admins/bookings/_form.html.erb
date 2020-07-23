@@ -1,0 +1,113 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div id="errors" style="color: red" v-if="errors.length"><h5>{{ errors }}</h5></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Hotel<span class="required">*</span></label>
+            <div class="col-md-9 col-sm-9">
+                <div class="row" style="margin-bottom: 10px;" v-for="(booking_room, index) in booking.booking_rooms_attributes">
+                    <div class="col-md-5 col-sm-5">
+                        <select class="form-control" v-model = "booking_room.hotel_id">
+                            <option v-for="hotel in hotels" v-bind:value="hotel.id">
+                                {{ hotel.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <select class="form-control" v-model = "booking_room.room_id">
+                            <option v-for="room in hotels[booking_room.hotel_id].rooms" v-bind:value="room.id">
+                                {{ room.code }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <button v-on:click="rmBookingRoom(index)" class="btn btn-sm"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <hr>
+                <button v-on:click="addRooms" class="btn btn-success btn-sm">Add</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Book User Name</label>
+            <div class="col-md-9 col-sm-9 ">
+                <input type="text" v-model="booking.book_user_name" class="form-control" placeholder="Book User Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Book UserPhone</label>
+            <div class="col-md-9 col-sm-9">
+                <input type="text" v-model="booking.book_user_phone" class="form-control" placeholder="Book User Phone">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Book User Number</label>
+            <div class="col-md-9 col-sm-9">
+                <input type="text" v-model="booking.book_user_number" class="form-control" placeholder="Book User Number">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Check In</label>
+            <div class="col-md-6 col-sm-6">
+                <date-picker v-model="booking.check_in_day" type="datetime"></date-picker>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Check Out</label>
+            <div class="col-md-3 col-sm-3">
+                <date-picker v-model="booking.check_out_day" type="datetime"></date-picker>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">People Number</label>
+            <div class="col-md-3 col-sm-3">
+                <input type="text" v-model="booking.book_people_number" class="form-control" placeholder="People Number">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Total Amount</label>
+            <div class="col-md-3 col-sm-3">
+                <input type="text" v-model="booking.book_total_amount" class="form-control" placeholder="Total Amount">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Status</label>
+            <div class="col-md-3 col-sm-3">
+                <select class="form-control" v-model="booking.book_status">
+                    <option>Choose status</option>
+                    <option value="0">Status 1</option>
+                    <option value="1">Status 2</option>
+                    <option value="2">Status 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Pay Status</label>
+            <div class="col-md-3 col-sm-3">
+                <select class="form-control" v-model="booking.pay_flag">
+                    <option>Choose status</option>
+                    <option value="false">false</option>
+                    <option value="true">true</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-md-3 col-sm-3">Memo</label>
+            <div class="col-md-9 col-sm-9 ">
+                <textarea class="form-control" v-model="booking.book_memo" rows="4" placeholder="Memo"></textarea>
+            </div>
+        </div>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-9 col-sm-9">
+                <%= link_to "Cancel", admins_bookings_path, :class => "btn btn-primary" %>
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <button v-on:click="saveBooking" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</div>

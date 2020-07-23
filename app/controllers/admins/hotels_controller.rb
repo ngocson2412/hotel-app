@@ -17,6 +17,10 @@ class Admins::HotelsController < ApplicationController
     room_types.each do |room_type|
       @room_type_array.push([room_type.name, room_type.id])
     end
+    @booking_list = []
+    @hotel.bookings.each do |booking|
+      @booking_list[booking.id] = booking
+    end
   end
 
   # GET /hotels/new
