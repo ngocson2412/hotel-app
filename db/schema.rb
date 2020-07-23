@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_095937) do
+ActiveRecord::Schema.define(version: 2020_07_13_130535) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,32 @@ ActiveRecord::Schema.define(version: 2020_07_10_095937) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["name"], name: "index_admins_on_name", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "booking_rooms", force: :cascade do |t|
+    t.integer "hotel_id", null: false
+    t.integer "room_id", null: false
+    t.integer "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_booking_rooms_on_booking_id"
+    t.index ["hotel_id"], name: "index_booking_rooms_on_hotel_id"
+    t.index ["room_id"], name: "index_booking_rooms_on_room_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "check_in_day"
+    t.boolean "pay_flag", default: false
+    t.string "book_status"
+    t.datetime "check_out_day"
+    t.string "book_user_name", null: false
+    t.string "book_user_phone", null: false
+    t.string "book_user_number", null: false
+    t.integer "book_people_number", default: 0
+    t.integer "book_total_amount", default: 0
+    t.text "book_memo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -99,6 +125,9 @@ ActiveRecord::Schema.define(version: 2020_07_10_095937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "booking_rooms", "bookings"
+  add_foreign_key "booking_rooms", "hotels"
+  add_foreign_key "booking_rooms", "rooms"
   add_foreign_key "rooms", "hotels"
   add_foreign_key "rooms", "room_types"
 end

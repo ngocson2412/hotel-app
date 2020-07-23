@@ -323,9 +323,9 @@
         </div>
         <div class="row">
             <div class="input-group">
-                <button type="button" class="btn btn-primary">Cancel</button>
+                <%= link_to "Cancel", admins_hotels_path, :class => "btn btn-primary" %>
                 <button type="reset" class="btn btn-primary">Reset</button>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <%= f.submit 'Submit', :class => "btn btn-success" %>
             </div>
         </div>
     </div>
